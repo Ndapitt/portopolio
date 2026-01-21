@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login 💕</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Poppins","Segoe UI",sans-serif;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#74c0fc,#f783ac);
+}
+.box{
+    background:#ffffff;
+    padding:35px 30px;
+    width:350px;
+    border-radius:25px;
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.25),
+        0 8px 16px rgba(0,0,0,.15);
+    text-align:center;
+    position:relative;
+    transition:.4s;
+}
+
+.box::before{
+    content:"🧸✨";
+    position:absolute;
+    top:-18px;
+    left:-18px;
+    font-size:2rem;
+}
+
+.box::after{
+    position:absolute;
+    bottom:-18px;
+    right:-18px;
+    font-size:2rem;
+}
+
+.box:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+h2{
+    color:#0d6efd;
+    margin-bottom:5px;
+}
+
+.form{
+    font-size:.9rem;
+    color:#f06595;
+    margin-bottom:20px;
+}
+.input-group{
+    position:relative;
+}
+
+.input-group span{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:1.1rem;
+}
+
+input{
+    width:100%;
+    padding:12px 15px 12px 45px;
+    margin-top:12px;
+    border-radius:30px;
+    border:1.5px solid #dee2e6;
+    outline:none;
+    font-size:.95rem;
+    transition:.3s;
+}
+
+input:focus{
+    border-color:#f783ac;
+    box-shadow:0 0 0 3px rgba(247,131,172,.25);
+}
+button{
+    width:100%;
+    padding:12px;
+    margin-top:20px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#4dabf7,#f783ac);
+    color:#ffffff;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 8px 18px rgba(0,0,0,.2);
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(0,0,0,.25);
+}
+.error{
+    margin-top:12px;
+    color:#f06595;
+    font-size:.9rem;
+    display:none;
+}
+</style>
+</head>
+
+<body>
+<div class="box" id="loginBox">
+
+    <h2>Login Yuk 😺💗</h2>
+    <p class="form">Masuk dulu yaa!</p>
+
+    <div class="input-group">
+        <span>👤</span>
+        <input type="text" id="username" placeholder="Username kamu 💌">
+    </div>
+
+    <div class="input-group">
+        <span>🔒</span>
+        <input type="password" id="password" placeholder="Password rahasia 🤫">
+    </div>
+
+    <button onclick="login()">Masuk 🚀</button>
+
+    <p class="error" id="errorMsg"> Ups! Password salah 😭💔</p>
+</div>
+
+<script>
+function login(){
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === "aku" && pass === "dinda"){
+        localStorage.setItem("isLoggedIn","true");
+        window.location.href = "dshbord.html";
+    }else{
+        document.getElementById("errorMsg").style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

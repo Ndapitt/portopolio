@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(iii.jpg);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(images.jfif);
+    background-size: cover;
+    backdrop-filter: blur(2px);
+}
+
+.box {
+    background: rgb(255, 255, 255);
+    padding: 25px;
+    width: 25%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.25),
+        0 8px 16px rgba(0, 0, 0, 0.15);
+
+    transform: translateY(0);
+    transition: 
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+.box:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow:
+        0 35px 70px rgba(0, 0, 0, 0.35),
+        0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    width: 95%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    border: 1px solid grey;
+    background-color: white;
+}
+
+button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 15px;
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.error {
+    color: palevioletred;
+    margin-top: 10px;
+    text-align: center;
+    display: none;
+}
+
+          
+    </style>
+</head>
+<body>
+    <div class="box" id="loginBox">
+        <h2>LOGIN DISINI 👇</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Masuk</button>
+        <p class="error" id="errorMsg">Password Salah!(๑•̀ᗝ•́)૭</p>
+    </div>
+    <script>
+         function login() {
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+            console.log(user);
+
+            // Password benar
+            if (user === "aku" && pass === "dinda") {
+                localStorage.setItem("isLoggedIn", "true");
+                 window.location.href = "dshbord.html";
+            } else {
+                // password salah
+                document.getElementById("errorMsg").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -112,6 +112,18 @@ button:hover{
     font-size:.9rem;
     display:none;
 }
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
 </style>
 </head>
 
@@ -140,12 +152,20 @@ button:hover{
 function login(){
     let user = document.getElementById("username").value;
     let pass = document.getElementById("password").value;
+    let errorMsg = document.getElementById("errorMsg");
+    let box = document.getElementById("loginBox");
 
-    if(user === "aku" && pass === "dinda"){
+    if(user === "akuu" && pass === "dinda"){
         localStorage.setItem("isLoggedIn","true");
         window.location.href = "dshbord.html";
-    }else{
-        document.getElementById("errorMsg").style.display = "block";
+    } else {
+        errorMsg.style.display = "block";
+
+        box.classList.add("shake");
+
+        setTimeout(() => {
+            box.classList.remove("shake");
+        }, 500);
     }
 }
 </script>
